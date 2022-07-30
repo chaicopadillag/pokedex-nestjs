@@ -8,7 +8,6 @@
 - Node.js
 - NestJS
 - MongoDB
--
 
 ## Requisitos
 

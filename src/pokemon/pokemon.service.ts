@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
+import { QueryDto } from 'src/common/dtos/query.dto';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { Pokemon } from './entities/pokemon.entity';
@@ -17,8 +18,16 @@ export class PokemonService {
     private readonly pokemonModel: Model<Pokemon>,
   ) {}
 
-  findAll() {
-    return `This action returns all pokemon`;
+  async findAll(query: QueryDto) {
+    const { limit = 10, offset = 0 } = query;
+    const skip = (offset - 1) * limit;
+
+    return await this.pokemonModel
+      .find()
+      .select('name no')
+      .limit(limit)
+      .skip(skip)
+      .sort({ no: 1 });
   }
 
   async create(createPokemonDto: CreatePokemonDto) {
