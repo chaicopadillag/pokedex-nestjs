@@ -24,7 +24,7 @@ npm i -g @nestjs/cli
 ## Crear en archivo de configuracion **.env**
 
 ```
- cp .env.example .env
+ cp .env.example .env && cp .env.example .env.prod
 ```
 
 ## Docker Base de Datos
