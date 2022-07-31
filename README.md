@@ -38,3 +38,9 @@ npm i -g @nestjs/cli
 ```
  yarn dev
 ```
+
+## Correr el Servidor Prod
+
+```
+ docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build ó docker-compose -f docker-compose.prod.yaml --env-file .env.prod up -d
+```
