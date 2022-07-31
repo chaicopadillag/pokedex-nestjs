@@ -21,6 +21,12 @@ npm i -g @nestjs/cli
  yarn
 ```
 
+## Crear en archivo de configuracion **.env**
+
+```
+ cp .env.example .env
+```
+
 ## Docker Base de Datos
 
 ```
